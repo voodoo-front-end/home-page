@@ -72,7 +72,7 @@ i {
   text-decoration: none; }
 
 /*Nav*/
-.nav_link {
+.nav_menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -80,7 +80,7 @@ i {
   -ms-flex-pack: center;
   justify-content: center; }
 
-ul a {
+.nav_link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -108,6 +108,12 @@ h2 {
   text-align: center;
   font-size: 55px;
   padding-top: 50px; }
+
+.nav-toggle {
+  font-size: 0;
+  color: transparent;
+  border: 0;
+  background: none; }
 
 /*Button*/
 .button {
@@ -237,18 +243,20 @@ p {
   color: #858587; }
 
 /*Media*/
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1400px) {
   .header {
     width: 100%;
     height: 400px;
     margin: 0; } }
 
 @media screen and (max-width: 1024px) {
+  /*Header*/
   .header {
     width: 100%;
     height: 300px;
     margin: 0; }
-  ul a {
+  /*Nav*/
+  .nav_link {
     font-size: 18px;
     margin: 0 50px; }
   .hot-dog {
@@ -259,6 +267,7 @@ p {
   .button {
     font-size: 16px;
     padding: 15px 25px; }
+  /*Section*/
   .section--first {
     padding-top: 110px; }
   .section h3 {
@@ -268,14 +277,112 @@ p {
     font-size: 16px; }
   .section h3:before {
     width: 24px; }
+  /*Footer*/
   .footer p {
     font-size: 14px; } }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 825px) {
+  /*Header*/
+  .body.lock {
+    overflow: hidden; }
   .header {
+    display: none; }
+  /*Nav*/
+  .nav_menu.active {
+    display: block; }
+  .nav_menu {
+    display: none;
     width: 100%;
-    height: 255px;
-    margin: 0; }
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #c4c4c6;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+    overflow: auto; }
+  .nav_link {
+    display: block;
+    color: #fffff0;
+    margin: 0;
+    padding: 8px 20px; }
+  .nav_link:active,
+  .nav_link:hover {
+    color: #0e5d69; }
+  .nav.fixed {
+    margin: 0;
+    height: 40px;
+    padding: 10px 0;
+    background: #c4c4c6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
+  .nav.active {
+    background: #efefef; }
+  /* Nav toggle */
+  .nav-toggle {
+    width: 30px;
+    padding: 10px 0;
+    font-size: 0;
+    color: transparent;
+    border: 0;
+    background: none;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 1; }
+  .nav-toggle_item {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    -webkit-transition: background 0.08s linear;
+    -o-transition: background 0.08s linear;
+    transition: background 0.08s linear; }
+  .nav-toggle.active .nav-toggle_item {
+    background: none; }
+  .nav-toggle.active .nav-toggle_item:before {
+    -webkit-transform-origin: left top;
+    -ms-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-transform: rotate(45deg) translateX(-2px);
+    -ms-transform: rotate(45deg) translateX(-2px);
+    transform: rotate(45deg) translateX(-2px); }
+  .nav-toggle.active .nav-toggle_item:after {
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate(-45deg) translateX(-3px);
+    -ms-transform: rotate(-45deg) translateX(-3px);
+    transform: rotate(-45deg) translateX(-3px); }
+  .nav-toggle_item:before,
+  .nav-toggle_item:after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    -webkit-transition: -webkit-transform 0.2s linear;
+    transition: -webkit-transform 0.2s linear;
+    -o-transition: transform 0.2s linear;
+    transition: transform 0.2s linear;
+    transition: transform 0.2s linear, -webkit-transform 0.2s linear; }
+  .nav-toggle_item:before {
+    top: -8px; }
+  .nav-toggle_item:after {
+    bottom: -8px; }
+  /*Secton*/
   .section--first .section_text h3 {
     margin-left: 50px;
     margin-right: 50px;
@@ -298,17 +405,10 @@ p {
     margin-left: 50px;
     margin-right: 50px; } }
 
-@media screen and (max-width: 576px) {
-  /*Header*/
-  .header {
-    display: none; }
-  /*Button*/
-  .button {
-    font-size: 14px;
-    padding: 10px 20px; }
+@media screen and (max-width: 676px) {
   /*Section*/
   .hot-dog {
-    padding-top: 40px; }
+    padding-top: 60px; }
   h2 {
     padding-top: 30px;
     font-size: 24px; }
@@ -359,10 +459,12 @@ p {
       padding-bottom: 25px; }
   /*Footer*/
   .footer {
+    display: block;
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: start;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
     .footer p {
+      padding-top: 10px;
       padding-left: 8px; } }

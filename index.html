@@ -22,24 +22,29 @@
     </div>
     <!--Instagram-->
   </header>
-  <nav class="nav_link">
-    <ul>
-      <a href="#">
-        <li>Menu</li>
-      </a>
-      <a href="#">
-        <li>Catering</li>
-      </a>
-      <a href="#">
-        <li>About Us</li>
-      </a>
-      <a href="#">
-        <li>Contact</li>
-      </a>
-    </ul>
+  <nav class="nav fixed " id="nav">
+    <div class="nav_menu">
+      <ul>
+        <a class="nav_link" id="nav_link" href="#">
+          <li>Menu</li>
+        </a>
+        <a class="nav_link" id="nav_link" href="#">
+          <li>Catering</li>
+        </a>
+        <a class="nav_link" id="nav_link" href="#">
+          <li>About Us</li>
+        </a>
+        <a class="nav_link" id="nav_link" href="#">
+          <li>Contact</li>
+        </a>
+      </ul>
+    </div>
+    <button class="nav-toggle  " id="nav_toggle" type="button">
+      <span class="nav-toggle_item">Menu</span>
+    </button>
   </nav>
-
-  <section>
+  <!--Nav-fixed-->
+  <section id="section">
     <img class="hot-dog" src="assets/images/hot-dog.png" alt="" />
     <h2>Dirty Dogs serves all-beef, vegan and <br />vegatagian hot dogs.</h2>
 
@@ -97,6 +102,8 @@
       </p>
     </div>
   </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>
